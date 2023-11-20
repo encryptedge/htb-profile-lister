@@ -1,0 +1,35 @@
+{
+  "name": "htb-profile-lister",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "check": "node --loader @esbuild-kit/esm-loader index.ts",
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "keywords": [
+    "htb",
+    "hackthebox",
+    "bot",
+    "profile",
+    "listing"
+  ],
+  "author": "BRAVO68WEB",
+  "license": "MIT",
+  "devDependencies": {
+    "@bravo68web/eslint-config": "^1.2.2",
+    "@bravo68web/tsconfig": "^1.2.2",
+    "@esbuild-kit/esm-loader": "^2.6.5",
+    "@types/node": "^20.9.2",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.3.1",
+    "neat-csv": "^7.0.0",
+    "zod": "^3.22.4"
+  }
+}
