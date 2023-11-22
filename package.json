@@ -5,7 +5,7 @@
   "main": "index.ts",
   "type": "module",
   "scripts": {
-    "check": "node --loader @esbuild-kit/esm-loader index.ts",
+    "check": "node --loader @esbuild-kit/esm-loader --no-warnings index.ts",
     "build": "tsc",
     "watch": "tsc -w"
   },
@@ -29,6 +29,7 @@
     "axios": "^1.6.2",
     "csv-parser": "^3.0.0",
     "dotenv": "^16.3.1",
+    "json-2-csv": "^5.0.1",
     "neat-csv": "^7.0.0",
     "zod": "^3.22.4"
   }

@@ -1,4 +1,4 @@
-function parseJwt(token) {
+function parseJwt(token: string): string | null {
 	if (token) {
 		try {
 			const base64Url = token.split(".")[1]
