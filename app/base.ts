@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { parseJwt } from '../libs/utils';
+// import { parseJwt } from '../libs/utils';
 
 export default class BaseHTB {
     private username: string;
@@ -9,6 +9,7 @@ export default class BaseHTB {
     constructor(uname: string, pass: string) {
         this.username = uname;
         this.password = pass;
+        this.access_token = "";
     }
 
     public login = async () => {
@@ -22,7 +23,7 @@ export default class BaseHTB {
     public getAccessToken = async (email: string, password: string): Promise<string> => {
 		return new Promise(async function(resolve, reject) {
 			try {
-                const response = await axios
+                const { data } = await axios
                     .post("https://www.hackthebox.com/api/v4/login", {
                         email,
                         password,
@@ -33,11 +34,8 @@ export default class BaseHTB {
                             "User-Agent": "HTB-CLI"
                         }
                     });
-                console.warn(
-                    `Acquired API v4 Session (Valid until ${new Date(parseJwt(response.data.message.access_token).exp * 1000).toLocaleString()})`
-                );
-                resolve(response.data.message.access_token);
-            } catch (err) {
+                resolve(data.message.access_token);
+            } catch (err: any) {
                 console.warn(err);
                 console.warn("Could not get session:", err.status);
                 reject(err);
